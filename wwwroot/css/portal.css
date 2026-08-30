@@ -1,0 +1,153 @@
+﻿/* === Portal Theme: Graphite + Steel Blue === */
+
+body {
+    background-color: #f3f4f6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #363b45 !important;
+    border-bottom: 3px solid #90aec6;
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white !important;
+    letter-spacing: 0.02em;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.5) !important;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+}
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #90aec6 !important;
+        border-bottom-color: #90aec6;
+    }
+
+/* Page headings */
+h1 {
+    color: #363b45;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #555c6a;
+    font-weight: 500;
+}
+
+/* Table */
+.table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 0.5px solid #dde2e8;
+}
+
+    .table thead th {
+        background-color: #363b45;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        font-weight: 500;
+        border-bottom: none;
+    }
+
+    .table tbody tr:hover td {
+        background-color: #f0f3f6;
+    }
+
+    .table td, .table th {
+        border-color: #dde2e8;
+    }
+
+/* Buttons */
+.btn-primary {
+    background-color: #555c6a;
+    border-color: #555c6a;
+}
+
+    .btn-primary:hover {
+        background-color: #363b45;
+        border-color: #363b45;
+    }
+
+.btn-success {
+    background-color: #3d7a6e;
+    border-color: #3d7a6e;
+}
+
+    .btn-success:hover {
+        background-color: #2e5e55;
+        border-color: #2e5e55;
+    }
+
+.btn-outline-secondary {
+    color: #555c6a;
+    border-color: #c2c8d0;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: #f3f4f6;
+        color: #363b45;
+    }
+
+/* Cards */
+.card {
+    border: 0.5px solid #dde2e8;
+    border-radius: 8px;
+}
+
+.card-header {
+    background-color: #f3f4f6;
+    border-bottom: 0.5px solid #dde2e8;
+    color: #363b45;
+    font-weight: 500;
+}
+
+/* Form controls */
+.form-control:focus,
+.form-select:focus {
+    border-color: #90aec6;
+    box-shadow: 0 0 0 3px rgba(144, 174, 198, 0.2);
+}
+
+/* Badges */
+.badge.bg-primary {
+    background-color: #555c6a !important;
+}
+
+.badge.bg-success {
+    background-color: #3d7a6e !important;
+}
+
+/* Links */
+a {
+    color: #5a85a8;
+}
+
+    a:hover {
+        color: #363b45;
+    }
+
+/* Sidebar (if applicable) */
+.sidebar {
+    background-color: #363b45;
+    border-right: 0.5px solid #4a5260;
+}
+
+    .sidebar .nav-link {
+        color: rgba(255, 255, 255, 0.6) !important;
+        border-radius: 6px;
+        margin-bottom: 2px;
+    }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: rgba(144, 174, 198, 0.15);
+            color: #90aec6 !important;
+        }

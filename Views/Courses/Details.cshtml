@@ -1,0 +1,71 @@
+@model FinalAssignmentBrief.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Course Details</h1>
+
+<div>
+    <hr />
+
+    <dl class="row">
+
+        <dt class="col-sm-3">Title</dt>
+        <dd class="col-sm-9">@Model.Title</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+
+        <dt class="col-sm-3">Duration Hours</dt>
+        <dd class="col-sm-9">@Model.DurationHours</dd>
+
+        <dt class="col-sm-3">Fees</dt>
+        <dd class="col-sm-9">@Model.Fees</dd>
+
+        <dt class="col-sm-3">Department</dt>
+        <dd class="col-sm-9">@Model.Department?.Name</dd>
+
+        <dt class="col-sm-3">Level</dt>
+        <dd class="col-sm-9">@Model.Level</dd>
+
+    </dl>
+
+    <h4>Assigned Instructors</h4>
+
+    <ul>
+        @foreach (var instructor in Model.Instructors)
+        {
+            <li>@instructor.FullName</li>
+        }
+    </ul>
+
+    <h4>Enrolled Students</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var enrollment in Model.Enrollments)
+            {
+                <tr>
+                    <td>@enrollment.Student?.FullName</td>
+                    <td>@enrollment.Grade</td>
+                    <td>@enrollment.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

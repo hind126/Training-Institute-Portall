@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FinalAssignmentBrief.Models.Enrollment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student
+            </th>
+            <th>
+                Course
+            </th>
+            <th>
+                Grade
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Enrollment Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Student?.FullName
+                </td>
+                <td>
+                    @item.Course?.Title
+                </td>
+                <td>
+                    @item.Grade
+                </td>
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    @item.EnrollmentDate.ToShortDateString()
+                </td>
+                <td>
+                    <a asp-action="Details"
+                       asp-route-studentId="@item.StudentId"
+                       asp-route-courseId="@item.CourseId">
+                        Details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

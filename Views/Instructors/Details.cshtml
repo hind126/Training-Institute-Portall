@@ -1,0 +1,78 @@
+@model FinalAssignmentBrief.Models.Instructor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Instructor</h4>
+    <hr />
+
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            Full Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FullName
+        </dd>
+
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+
+        <dt class="col-sm-2">
+            Specialization
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Specialization
+        </dd>
+
+        <dt class="col-sm-2">
+            Hire Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HireDate.ToShortDateString()
+        </dd>
+
+    </dl>
+
+    <h4>Assigned Courses</h4>
+
+    @if (Model.Courses.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course Title</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var course in Model.Courses)
+                {
+                    <tr>
+                        <td>@course.Title</td>
+                        <td>@course.Department?.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No courses assigned.</p>
+    }
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

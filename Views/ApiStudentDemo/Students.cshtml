@@ -1,0 +1,45 @@
+﻿<h2>Students API Demo</h2>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>GPA</th>
+            <th>Phone</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+
+    <tbody id="StudentsBody">
+    </tbody>
+</table>
+
+<script>
+
+    fetch("/api/StudentsApi")
+        .then(response => response.json())
+        .then(data =>
+        {
+            let rows = "";
+
+            data.forEach(student =>
+            {
+                rows += `
+                    <tr>
+                        <td>${student.fullName}</td>
+                        <td>${student.email}</td>
+                        <td>${student.gpa}</td>
+                        <td>${student.phoneNumber}</td>
+                        <td>${student.address}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById("StudentsBody").innerHTML = rows;
+        })
+        .catch(error =>
+            console.error(error));
+
+</script>

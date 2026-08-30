@@ -1,0 +1,121 @@
+@model FinalAssignmentBrief.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            Full Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FullName
+        </dd>
+
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+
+        <dt class="col-sm-2">
+            Date Of Birth
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateOfBirth.ToShortDateString()
+        </dd>
+
+        <dt class="col-sm-2">
+            Registration Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.RegistrationDate.ToShortDateString()
+        </dd>
+
+        <dt class="col-sm-2">
+            GPA
+        </dt>
+        <dd class="col-sm-10">
+            @Model.GPA
+        </dd>
+
+    </dl>
+
+    <h4>Student Profile</h4>
+
+    @if (Model.StudentProfile != null)
+    {
+        <dl class="row">
+
+            <dt class="col-sm-2">
+                Phone Number
+            </dt>
+            <dd class="col-sm-10">
+                @Model.StudentProfile.PhoneNumber
+            </dd>
+
+            <dt class="col-sm-2">
+                Address
+            </dt>
+            <dd class="col-sm-10">
+                @Model.StudentProfile.Address
+            </dd>
+
+            <dt class="col-sm-2">
+                Emergency Contact
+            </dt>
+            <dd class="col-sm-10">
+                @Model.StudentProfile.EmergencyContact
+            </dd>
+
+        </dl>
+    }
+    else
+    {
+        <p>No profile assigned.</p>
+    }
+
+    <h4>Enrolled Courses</h4>
+
+    @if (Model.Enrollments.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Grade</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var enrollment in Model.Enrollments)
+                {
+                    <tr>
+                        <td>@enrollment.Course?.Title</td>
+                        <td>@enrollment.Grade</td>
+                        <td>@enrollment.Status</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No enrollments found.</p>
+    }
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

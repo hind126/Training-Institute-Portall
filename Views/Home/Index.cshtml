@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">
+            STI Training Portal
+        </h1>
+
+        <p class="lead text-secondary">
+            A comprehensive training management system designed to support
+            students, instructors, and administrators.
+        </p>
+
+        <div class="mt-4">
+            <a asp-controller="Students"
+               asp-action="Index"
+               class="btn btn-primary btn-lg me-2">
+                Get Started
+            </a>
+
+            <a asp-controller="Courses"
+               asp-action="Index"
+               class="btn btn-outline-secondary btn-lg">
+                Browse Courses
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Departments</h5>
+                    <h1>@ViewBag.Departments</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Courses</h5>
+                    <h1>@ViewBag.Courses</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Instructors</h5>
+                    <h1>@ViewBag.Instructors</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Students</h5>
+                    <h1>@ViewBag.Students</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
